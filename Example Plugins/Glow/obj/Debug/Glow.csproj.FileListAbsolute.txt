@@ -1,0 +1,7 @@
+C:\Users\Alec\SkyDrive\Projects\K_Relay\Glow\bin\Debug\Glow.dll
+C:\Users\Alec\SkyDrive\Projects\K_Relay\Glow\bin\Debug\Glow.pdb
+C:\Users\Alec\SkyDrive\Projects\K_Relay\Glow\bin\Debug\Lib K Relay.dll
+C:\Users\Alec\SkyDrive\Projects\K_Relay\Glow\bin\Debug\Lib K Relay.pdb
+C:\Users\Alec\SkyDrive\Projects\K_Relay\Glow\obj\Debug\Glow.csprojResolveAssemblyReference.cache
+C:\Users\Alec\SkyDrive\Projects\K_Relay\Glow\obj\Debug\Glow.dll
+C:\Users\Alec\SkyDrive\Projects\K_Relay\Glow\obj\Debug\Glow.pdb
