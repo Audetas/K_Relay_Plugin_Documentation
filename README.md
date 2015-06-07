@@ -61,7 +61,7 @@ using System.Windows.Forms;
 
 namespace MyPlugin
 {
-	public Class MyPlugin : IPlugin
+	public class MyPlugin : IPlugin
 	{
 		private bool _enabled = true;
 		
@@ -79,8 +79,14 @@ namespace MyPlugin
 		
 		public void Initialize(Proxy proxy)
 		{
+			proxy.HookKey(Keys.F2, OnF2Hotkey);
 			proxy.HookCommand("myplugin", OnMyPluginCommand);
 			proxy.HookPacket(PacketType.PLAYERTEXT, OnPlayerText);
+		}
+		
+		private void OnF2Hotkey(Keys key)
+		{
+			enabled = !enabled;
 		}
 		
 		private void OnMyPluginCommand(Client client, string command, string[] args)
@@ -144,6 +150,7 @@ It also contains event handlers for the following events that you can attach to:
 
 You can hook specific packets using the `Proxy::HookPacket(PacketType, Action<Client, Packet>)` method.
 You can hook specific commands using the `Proxy::HookCommand(string command, Action<Client, string, string[]>)` method.
+You can hook specific hotkeys using the `Proxy::HookKey(Keys key, Action<Keys>)` method.
 
 Here's an example of attaching to an event listener and hooking a packet:
 ```C#
@@ -152,6 +159,7 @@ void Initialize(Proxy proxy)
 	proxy.ClientConnected += OnClientConnected; // Attach to an event listener
 	proxy.HookPacket(PacketType.PlayerText, OnPlayerText); // Hook a specific packet
 	proxy.HookCommand("connect", OnConnectCommand); // Hook a specific command
+	proxy.HookKey(Keys.F2, OnF2Hotkey); // Hook a hotkey
 }
 
 void OnClientConnected(Client client)
@@ -171,6 +179,11 @@ void OnConnectCommand(Client client, string command, string[] args)
 		Console.WriteLine("Player used /connect to connect to server {0}", args[0]);
 	else
 		Console.WriteLine("Player used /connect but didn't specify a server!");
+}
+
+void OnF2Hotkey(Keys key)
+{
+	MessageBox.Show(You pressed " + key.ToString());
 }
 ```
 
